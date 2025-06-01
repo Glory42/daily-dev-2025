@@ -13,6 +13,7 @@ Hi! I'm Görkem. Between June and September 2025, I'm building something every d
 | Day | Project | Type | Link |
 |-----|---------|------|------|
 | 01 | Markdown to HTML Converter | CLI | [🔗](./06-June/01-markdown-to-html) |
+| 02 | JSON Formatter Web | Frontend | [🔗](./06-June/02-json-formatter) |
 | ... | ... | ... | ... |
 
 ### July
@@ -24,3 +25,4 @@ _(will be updated...)_
 - Become a better developer by building daily.
 - Improve Git workflow and documentation.
 - Explore new technologies weekly.
+
