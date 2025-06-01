@@ -1,0 +1,15 @@
+{
+  "name": "01-markdown-to-html",
+  "version": "1.0.0",
+  "description": "A simple CLI tool that reads a `.md` file and converts it into a styled HTML file using Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "marked": "^15.0.12"
+  }
+}
