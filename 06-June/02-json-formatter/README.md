@@ -1,6 +1,6 @@
-# JSON Formatter Web App
+# 📘 JSON Formatter Web App
 
-## Project Description
+## 🚀 Project Description
 
 This project is a simple web application that allows users to easily format and beautify their JSON data.  
 Users can paste or write JSON data into the textarea and click the "Format" button to see the pretty-printed version of their JSON. If the JSON is invalid, an explanatory error message is displayed.
@@ -17,7 +17,7 @@ Users can paste or write JSON data into the textarea and click the "Format" butt
 
 ---
 
-## Technologies
+## 🛠️ Technologies
 
 - HTML5  
 - CSS3  
