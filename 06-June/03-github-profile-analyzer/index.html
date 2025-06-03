@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analyze GitHub profiles with interactive charts and statistics">
+    <title>GitHub Profile Analyzer</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <h1 class="app-title">GitHub Profile Analyzer</h1>
+            <p class="app-description">Analyze GitHub profiles with interactive charts and detailed statistics</p>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">            
+            <section class="search-section">
+                <form class="search-form" id="github-search-form">
+                    <div class="search-input-group">
+                        <label for="username-input" class="visually-hidden">GitHub Username</label>
+                        <input 
+                            type="text" 
+                            id="username-input" 
+                            class="search-input" 
+                            placeholder="Enter GitHub username..."
+                            required
+                            autocomplete="off"
+                            data-search-input
+                        >
+                        <button type="submit" class="search-button" data-search-button>
+                            <span class="button-text">Analyze Profile</span>
+                            <span class="loading-spinner" data-loading-spinner></span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="status-section">
+                <div class="status-message error-message" id="error-message" data-error-message>
+                    <span class="status-icon">⚠️</span>
+                    <span class="status-text" data-error-text></span>
+                </div>
+                
+                <div class="status-message loading-message" id="loading-message" data-loading-message>
+                    <span class="status-icon">🔄</span>
+                    <span class="status-text">Fetching GitHub data...</span>
+                </div>
+            </section>
+
+            <section class="profile-section" id="profile-section" data-profile-section>                
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img class="profile-avatar" data-profile-avatar alt="User avatar">
+                        <div class="profile-info">
+                            <h2 class="profile-name" data-profile-name></h2>
+                            <p class="profile-username" data-profile-username></p>
+                            <p class="profile-bio" data-profile-bio></p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-repos-count></span>
+                            <span class="stat-label">Repositories</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-followers-count></span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-following-count></span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-gists-count></span>
+                            <span class="stat-label">Gists</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-item" data-location-item>
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text" data-profile-location></span>
+                        </div>
+                        <div class="detail-item" data-company-item>
+                            <span class="detail-icon">🏢</span>
+                            <span class="detail-text" data-profile-company></span>
+                        </div>
+                        <div class="detail-item" data-website-item>
+                            <span class="detail-icon">🔗</span>
+                            <a class="detail-link" data-profile-website target="_blank" rel="noopener"></a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">Joined <span data-profile-joined></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-section">
+                    <h3 class="charts-title">Repository Analytics</h3>
+                    
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h4 class="chart-title">Languages Used</h4>
+                                <p class="chart-description">Distribution of programming languages across repositories</p>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="languages-chart" data-languages-chart></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h4 class="chart-title">Repository Statistics</h4>
+                                <p class="chart-description">Stars, forks, and repository count over time</p>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="repo-stats-chart" data-repo-stats-chart></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h4 class="chart-title">Repository Types</h4>
+                                <p class="chart-description">Original vs forked repositories</p>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="repo-types-chart" data-repo-types-chart></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-container chart-full-width">
+                            <div class="chart-header">
+                                <h4 class="chart-title">Repository Creation Timeline</h4>
+                                <p class="chart-description">Repository creation activity over the years</p>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="activity-timeline-chart" data-activity-timeline-chart></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repositories-section">
+                    <h3 class="repositories-title">Popular Repositories</h3>
+                    <div class="repositories-list" data-repositories-list>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p class="footer-text">Built with GitHub API and Chart.js</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/github-api.js"></script>
+    <script type="module" src="scripts/chart-manager.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
