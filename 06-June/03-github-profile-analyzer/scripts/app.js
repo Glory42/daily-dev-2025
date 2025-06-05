@@ -1,4 +1,4 @@
-import { getUserData, getUserRepos } from "./github-api";
+import { getUserData, getUserRepos } from "./github-api.js";
 
 const form = document.querySelector('#github-search-form');
 const input = document.querySelector('#username-input');
