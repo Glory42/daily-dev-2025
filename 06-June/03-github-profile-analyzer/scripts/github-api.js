@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.github.com';
+const BASE_URL = 'https://api.github.com/users';
 
 export async function getUserData(username) {
     const response = await fetch(`${BASE_URL}/${username}`);
