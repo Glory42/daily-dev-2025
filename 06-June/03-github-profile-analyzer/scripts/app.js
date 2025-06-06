@@ -62,4 +62,9 @@ function showError (msg) {
 function showProfile () {
     errorMessage.classList.remove('visible');
     profileSelection.classList.add('visible');
+
+    const profileCard =document.querySelector('.profile-card');
+    if (profileCard) {
+        profileCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
