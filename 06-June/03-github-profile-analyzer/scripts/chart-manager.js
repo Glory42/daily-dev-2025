@@ -1,6 +1,7 @@
 let languageChart;
 let repoStatChart;
 let repoTypeChart;
+let timelineChart;
 
 export function renderLanguageChart (repos) {
     const languageCounts = {};
@@ -118,4 +119,54 @@ export function renderRepoTypeChart (repos) {
             }
         }   
     });
+}
+
+export function renderRepoTimelineChart (repos) {
+    const yearCounts = {};
+
+    repos.forEach(repo => {
+        const year = new Date(repo.created_at).getFullYear();
+        yearCounts[year] = (yearCounts[year] || 0) + 1;
+    });
+
+    const sortedYears = Object.keys(yearCounts).sort();
+    const counts = sortedYears.map(year => yearCounts[year]);
+
+    const ctx = document.querySelector('[data-activity-timeline-chart]').getContext('2d');
+
+    if (timelineChart) {
+        timelineChart.destroy();
+    }
+
+    timelineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: sortedYears,
+        datasets: [{
+            label: 'Repositories Created',
+            data: counts,
+            borderColor: '#1f6feb',
+            backgroundColor: 'rgba(31, 111, 235, 0.1)',
+            tension: 0.3,
+            fill: true
+        }]
+        },
+        options: {
+        responsive: true,
+        plugins: {
+            legend: {
+            position: 'top'
+            }
+        },
+        scales: {
+            y: {
+            beginAtZero: true,
+            ticks: {
+                precision: 0
+            }
+            }
+        }
+        }
+    });
+
 }
