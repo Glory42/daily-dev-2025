@@ -4,7 +4,7 @@ const form = document.querySelector('#github-search-form');
 const input = document.querySelector('#username-input');
 const errorMessage = document.querySelector('[data-error-message]');
 const loadingMessage = document.querySelector('[data-loading-message]');
-const profileSelection = document.querySelector('[data-profile-message]');
+const profileSelection = document.querySelector('[data-profile-section]');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
