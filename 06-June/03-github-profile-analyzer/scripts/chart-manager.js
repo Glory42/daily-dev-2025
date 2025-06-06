@@ -1,4 +1,5 @@
 let languageChart;
+let repoStatChart;
 
 export function renderLanguageChart (repos) {
     const languageCounts = {};
@@ -45,4 +46,43 @@ function generateColors (count) {
         colors.push(baseColors[i % baseColors.length]);
     }
     return colors;
+}
+
+export function renderRepoStatChart (repos) {
+    const totalRepos = repos.length;
+    const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+    const totalForks = repos.reduce((sum, repo) => sum + repo.forks_count, 0);
+
+    const ctx = document.querySelector('[data-repo-stats-chart]').getContext('2d');
+    if (repoStatChart) {
+        repoStatChart.destroy();
+    }
+
+    repoStatChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Repositories', 'Stars', 'Forks'],
+            datasets: [{
+                label: 'Repository Stats',
+                data: [totalRepos, totalStars, totalForks],
+                backgroundColor: ['#1f6feb', '#f78166', '#3fb950']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
 }
