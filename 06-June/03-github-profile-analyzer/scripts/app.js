@@ -1,4 +1,5 @@
 import { getUserData, getUserRepos } from "./github-api.js";
+import { renderLanguageChart } from "./chart-manager.js";
 
 const form = document.querySelector('#github-search-form');
 const input = document.querySelector('#username-input');
@@ -17,8 +18,8 @@ form.addEventListener('submit', async (e) => {
         const repos = await getUserRepos(username);
 
         fillUserProfile(user);
-    
         showProfile();
+        renderLanguageChart(repos);
     } catch (err) {
         showError(err.message);
     } finally {
