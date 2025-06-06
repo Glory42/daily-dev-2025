@@ -1,5 +1,6 @@
 let languageChart;
 let repoStatChart;
+let repoTypeChart;
 
 export function renderLanguageChart (repos) {
     const languageCounts = {};
@@ -84,5 +85,37 @@ export function renderRepoStatChart (repos) {
                 }
             }
         }
+    });
+}
+
+export function renderRepoTypeChart (repos) {
+    const forkedCount = repos.filter(repo => repo.fork).length;
+    const originalCount = repos.length - forkedCount;
+
+    const ctx = document.querySelector('[data-repo-types-chart]').getContext('2d');
+
+
+    if (repoTypeChart) {
+        repoTypeChart.destroy();
+    }
+
+    repoTypeChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Original', 'Forked'],
+            datasets: [{
+                label: 'Repository Types',
+                data: [originalCount, forkedCount],
+                backgroundColor: ['#58a6ff', '#f78166']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                position: 'bottom'
+                }
+            }
+        }   
     });
 }
