@@ -1,5 +1,5 @@
 import { getUserData, getUserRepos } from "./github-api.js";
-import { renderLanguageChart, renderRepoStatChart, renderRepoTypeChart } from './chart-manager.js';
+import { renderLanguageChart, renderRepoStatChart, renderRepoTypeChart, renderRepoTimelineChart } from './chart-manager.js';
 
 const form = document.querySelector('#github-search-form');
 const input = document.querySelector('#username-input');
@@ -22,6 +22,7 @@ form.addEventListener('submit', async (e) => {
         renderLanguageChart(repos);
         renderRepoStatChart(repos);
         renderRepoTypeChart(repos);
+        renderRepoTimelineChart(repos);
     } catch (err) {
         showError(err.message);
     } finally {
