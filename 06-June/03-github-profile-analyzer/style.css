@@ -445,7 +445,7 @@ body {
 
 .chart-wrapper canvas {
     max-width: 100%;
-    height: auto;
+    max-height: 106%;
 }
 
 /* ===== REPOSITORIES SECTION ===== */
