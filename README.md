@@ -15,6 +15,7 @@ Hi! I'm Görkem. Between June and September 2025, I'm building something every d
 | Markdown to HTML Converter | CLI | [🔗](./06-June/01-markdown-to-html) |
 | JSON Formatter Web | Frontend | [🔗](./06-June/02-json-formatter) |
 | Github Profile Analyzer | Frontend + API | [🔗](./06-June/03-github-profile-analyzer) |
+| CLI: File Organizer | Node.js fs | [🔗](./06-June/04-file-organizer/) |
 | ... | ... | ... | ... |
 
 ### July
