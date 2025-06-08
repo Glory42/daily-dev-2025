@@ -2,7 +2,7 @@
 
 Hi! I'm Görkem. Between June and September 2025, I'm building something every day – from mini tools to full-stack apps.
 
-📅 Total Days Logged: **1 / 120**  
+📅 Total Days Logged: **8 / 120**  
 🛠️ Tech Stack: JavaScript, Node.js, Express, PostgreSQL, React, etc.
 
 ---
