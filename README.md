@@ -2,7 +2,7 @@
 
 Hi! I'm Görkem. Between June and September 2025, I'm building something every day – from mini tools to full-stack apps.
 
-📅 Total Days Logged: **8 / 120**  
+📅 Total Days Logged: **10 / 120**  
 🛠️ Tech Stack: JavaScript, Node.js, Express, PostgreSQL, React, etc.
 
 ---
@@ -15,7 +15,8 @@ Hi! I'm Görkem. Between June and September 2025, I'm building something every d
 | Markdown to HTML Converter | CLI | [🔗](./06-June/01-markdown-to-html) |
 | JSON Formatter Web | Frontend | [🔗](./06-June/02-json-formatter) |
 | Github Profile Analyzer | Frontend + API | [🔗](./06-June/03-github-profile-analyzer) |
-| CLI: File Organizer | Node.js fs | [🔗](./06-June/04-file-organizer/) |
+| CLI: File Organizer | Node.js + fs | [🔗](./06-June/04-file-organizer/) |
+| Book-API CRUD | Node.js + SupaBase | [🔗](./06-June/05-book-api/) | 
 | ... | ... | ... | ... |
 
 ### July
